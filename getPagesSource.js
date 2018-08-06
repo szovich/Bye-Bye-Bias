@@ -22,7 +22,7 @@ function DOMtoString (documentRoot) {
     }
     node = node.nextSibling
   }
-  console.log(html, 'HTML!')
+  console.log(typeof html, 'HTML!')
   return html
 }
 
