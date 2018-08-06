@@ -8,7 +8,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["jquery-3.2.1.min.js", "content.js"]
+      "js": ["content.js"]
     }
   ],
   "background": {
@@ -31,9 +31,10 @@
      "128": "images/get_started128.png"
    },
   "permissions": [
-          "activeTab", 
+          "activeTab",
           "tabs",
           "declarativeContent",
-          "storage"
+          "storage",
+           "<all_urls>"
   ]
 }
