@@ -19,9 +19,34 @@ r = r.responseText;
 r = JSON.parse(r);
 
 console.log(r);
-  // take selectedText variable and put it in the api
 
-  // console.log() the output of the api
+// take r, see if it's f or m
+// let r = {gender: f, confidence: .75}
+// let r = {gender: m, confidence: .75}
+  if (r.gender === "f") {
+   document.body.style.backgroundColor = 'pink';
+} else {
+  document.body.style.backgroundColor = 'blue';
+}
+
+// <BODY onload="changeBackground('pink');">
+//   }
+// if (r.gender  === "m") { {
+//    document.body.style.background = color;
+// }
+//
+// <BODY onload="changeBackground('blue');">
+
+// if f, do javascript to change background pink
+// changeColor.onclick = function(element) {
+//     let color = element.target.value;
+//     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//       chrome.tabs.executeScript(
+//           tabs[0].id,
+//           {code: 'document.body.style.backgroundColor = "' + color + '";'});
+//     });
+//   };
+// if m, do javascript to change background blue
 
 }
 
