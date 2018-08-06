@@ -1,32 +1,31 @@
-function DOMtoString () {
-  // var html = ''
-  // var node = documentRoot.firstChild
-  // while (node) {
-  //   switch (node.nodeType) {
-  //     case Node.ELEMENT_NODE:
-  //       html += node.outerHTML
-  //       break
-  //     case Node.TEXT_NODE:
-  //       // html += node.nodeValue
-  //       break
-  //     case Node.COMMENT_NODE:
-  //       // html += '<!--' + node.nodeValue + '-->'
-  //       break
-  //     case Node.DOCUMENT_TYPE_NODE:
-  //       // (X)HTML documents are identified by public identifiers
-  //       // html += '<!DOCTYPE ' + node.name + (node.publicId ? ' PUBLIC "' + node.publicId + '"' : '') + (!node.publicId && node.systemId ? ' SYSTEM' : '') + (node.systemId ? ' "' + node.systemId + '"' : '') + '>\n'
-  //       break
-  //   }
-  //   node = node.nextSibling
-  // }
-  // console.log(html)
-  // console.log('HTML!')
-  // return html
+function getSelectedText () {
+  // output selected text in console to make sure it's right
   console.log(window.getSelection().toString())
-  return window.getSelection().toString()
+  // call API
+  callAPI(window.getSelection().toString())
+}
+
+function callAPI (selectedText) {
+  // set up the api for gender
+  var q, r;
+
+q = 'https://api.textgain.com/1/gender?';
+q += 'q=' + encodeURIComponent(selectedText) + '&lang=en&key=***';
+
+r = new XMLHttpRequest();
+r.open('GET', q, false); // false = synchronous
+r.send();
+r = r.responseText;
+r = JSON.parse(r);
+
+console.log(r);
+  // take selectedText variable and put it in the api
+
+  // console.log() the output of the api
+
 }
 
 chrome.runtime.sendMessage({
   action: 'getSource',
-  source: DOMtoString()
+  source: getSelectedText()
 })
